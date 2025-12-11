@@ -7,10 +7,10 @@ namespace OnlinePharmacy.Api.Models
     {
         public long Id { get; set; }
         public DateTime OrderDate { get; set; } = DateTime.Now;
-        public decimal TotalAmount { get; set; } // Общая сумма чека
-        public string CustomerName { get; set; } = string.Empty; // ФИО покупателя
+        public decimal TotalAmount { get; set; } 
+        public string CustomerName { get; set; } = string.Empty; 
 
-        // Связь: В заказе много позиций
+        
         public List<OrderItem> Items { get; set; } = new List<OrderItem>();
     }
 }
