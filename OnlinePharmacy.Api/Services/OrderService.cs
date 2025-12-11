@@ -42,14 +42,14 @@ namespace OnlinePharmacy.Api.Services
                 if (medicine == null)
                     throw new ArgumentException($"Ліки с ID {itemDto.MedicineId} не знайденно.");
 
-                // БИЗНЕС-ЛОГИКА: Хватает ли на складе?
+              
                 if (medicine.QuantityInStock < itemDto.Quantity)
                     throw new ArgumentException($"Невистачає товару '{medicine.Name}'. В наявності: {medicine.QuantityInStock}");
 
-                // БИЗНЕС-ЛОГИКА: Списываем со склада
+              
                 medicine.QuantityInStock -= itemDto.Quantity;
 
-                // Добавляем в чек
+       
                 var orderItem = new OrderItem
                 {
                     Medicine = medicine,
