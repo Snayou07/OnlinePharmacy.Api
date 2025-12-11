@@ -19,7 +19,7 @@ namespace OnlinePharmacy.Tests
         public OrdersControllerTests()
         {
             _mockService = new Mock<IOrderService>();
-            // Увага: тут немає Logger, бо ми домовилися його не ставити
+            
             _controller = new OrdersController(_mockService.Object);
         }
 
@@ -67,8 +67,7 @@ namespace OnlinePharmacy.Tests
             // Assert
             var badRequest = Assert.IsType<BadRequestObjectResult>(result); // 400 Bad Request
 
-            // Перевіряємо, що це не пустий 400, а з повідомленням про помилку
-            // Це доводить, що ми правильно обробили try-catch
+           
             Assert.NotNull(badRequest.Value);
         }
     }
