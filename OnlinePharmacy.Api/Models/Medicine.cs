@@ -13,10 +13,10 @@ namespace OnlinePharmacy.Api.Models
         public DateTime ExpirationDate { get; set; }
         public bool RequiresPrescription { get; set; }
 
-        // Новое поле: ID категории
+       
         public long CategoryId { get; set; }
 
-        // Навигационное свойство (для связи)
+      
         [JsonIgnore]
         public Category? Category { get; set; }
     }
