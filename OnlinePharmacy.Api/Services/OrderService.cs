@@ -16,7 +16,7 @@ namespace OnlinePharmacy.Api.Services
 
         public async Task<IEnumerable<Order>> GetAllAsync()
         {
-            // Подгружаем детали заказа (Include)
+           
             return await _context.Orders
                 .Include(o => o.Items)
                 .ThenInclude(i => i.Medicine)
@@ -36,15 +36,15 @@ namespace OnlinePharmacy.Api.Services
 
             foreach (var itemDto in dto.Items)
             {
-                // Ищем лекарство
+                
                 var medicine = await _context.Medicines.FindAsync(itemDto.MedicineId);
 
                 if (medicine == null)
-                    throw new ArgumentException($"Лекарство с ID {itemDto.MedicineId} не найдено.");
+                    throw new ArgumentException($"Ліки с ID {itemDto.MedicineId} не знайденно.");
 
                 // БИЗНЕС-ЛОГИКА: Хватает ли на складе?
                 if (medicine.QuantityInStock < itemDto.Quantity)
-                    throw new ArgumentException($"Недостаточно товара '{medicine.Name}'. В наличии: {medicine.QuantityInStock}");
+                    throw new ArgumentException($"Невистачає товару '{medicine.Name}'. В наявності: {medicine.QuantityInStock}");
 
                 // БИЗНЕС-ЛОГИКА: Списываем со склада
                 medicine.QuantityInStock -= itemDto.Quantity;
