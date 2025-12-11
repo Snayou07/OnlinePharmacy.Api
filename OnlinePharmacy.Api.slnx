@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="OnlinePharmacy.Api/OnlinePharmacy.Api.csproj" />
+  <Project Path="OnlinePharmacy.Tests/OnlinePharmacy.Tests.csproj" Id="ea57994d-d7c7-4f7e-a800-7f7a4550823b" />
+</Solution>
