@@ -31,15 +31,15 @@ namespace OnlinePharmacy.Api.Services
 
         public async Task<Medicine> CreateAsync(MedicineDto dto)
         {
-            // Проверка: Существует ли такая категория?
+            
             var category = await _context.Categories.FindAsync(dto.CategoryId);
             if (category == null)
             {
-                throw new ArgumentException("Указанная категория не существует!");
+                throw new ArgumentException("Вказана категорія не існує!");
             }
 
-            // ... дальше старый код проверки даты ...
-            if (dto.ExpirationDate < DateTime.Now) throw new ArgumentException("Лекарство просрочено!");
+         
+            if (dto.ExpirationDate < DateTime.Now) throw new ArgumentException("Медикамент просрочено!");
 
             var medicine = new Medicine
             {
@@ -49,7 +49,7 @@ namespace OnlinePharmacy.Api.Services
                 QuantityInStock = dto.QuantityInStock,
                 ExpirationDate = dto.ExpirationDate,
                 RequiresPrescription = dto.RequiresPrescription,
-                CategoryId = dto.CategoryId // <-- ВАЖНО: Присваиваем категорию
+                CategoryId = dto.CategoryId 
             };
 
             _context.Medicines.Add(medicine);
