@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OnlinePharmacy.Api.DTOs
 {
-    // Покупатель присылает список ID лекарств и количество
+    
     public class CreateOrderItemDto
     {
         [Required]
