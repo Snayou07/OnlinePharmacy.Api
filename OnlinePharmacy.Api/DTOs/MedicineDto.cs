@@ -17,6 +17,6 @@ namespace OnlinePharmacy.Api.DTOs
         public bool RequiresPrescription { get; set; }
 
         [Required]
-        public long CategoryId { get; set; } // Обязательно выбрать категорию
+        public long CategoryId { get; set; } 
     }
 }
